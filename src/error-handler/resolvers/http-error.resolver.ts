@@ -6,7 +6,6 @@ import { Resolver } from "../models/error-config.model";
 @Injectable({ providedIn: "root"})
 export class HttpErrorResolver implements Resolver {
     canResolve(error: any): boolean {
-        console.log(error);
         return error instanceof HttpErrorResponse;
     }    
     resolveError(error: any): ErrorModel {

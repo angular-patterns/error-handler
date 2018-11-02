@@ -7,9 +7,9 @@
   </div>
   <div *ngIf="html" [innerHTML]="html">
   </div>
-  <div *ngFor="let group of groups">
-      <h2>{{ group.category }}</h2>
-      <table>
+  <div class="card" *ngFor="let group of groups">
+      <div class="card-header">{{ group.category }}</div>
+      <table class="table">
         <tr *ngFor="let prop of group.properties">
             <td>{{ prop.key }}</td>
             <td>{{ prop.value }}</td>

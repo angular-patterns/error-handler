@@ -8,10 +8,14 @@ export class GlobalErrorHandler implements ErrorHandler {
         
     }
     handleError(error) {
+        const router = this.injector.get(Router);
+        if (router.url === '/error') {
+            console.error(error);
+            return;
+        }
+
         const notificationService = this.injector.get(ErrorNotificationService);
         notificationService.next(error);
-
-        const router = this.injector.get(Router);
         router.navigate(['error']);
     }
 }
