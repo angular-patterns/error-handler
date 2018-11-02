@@ -1,0 +1,10 @@
+
+<div *ngIf="customErrors; then detailedMessages else friendlyMessages"></div>
+
+<ng-template #detailedMessages>
+  <h2>{{ message }}</h2>
+  <div>
+      {{ stack }}
+  </div>
+</ng-template>
+<ng-template #friendlyMessages><ng-content></ng-content></ng-template>

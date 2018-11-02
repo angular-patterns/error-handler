@@ -9,8 +9,9 @@ export class GlobalErrorHandler implements ErrorHandler {
     }
     handleError(error) {
         const notificationService = this.injector.get(ErrorNotificationService);
-        const router = this.injector.get(Router);
         notificationService.next(error);
 
+        const router = this.injector.get(Router);
+        router.navigate(['error']);
     }
 }
