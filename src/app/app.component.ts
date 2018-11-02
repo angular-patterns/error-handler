@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'app7';
   someVar: any;
   constructor(private http: HttpClient, private router: Router, private errorNotificationService: ErrorNotificationService){
+
     this.errorNotificationService.error$.subscribe(t=> {
       this.errorNotificationService.safeNavigate('./error');
     });

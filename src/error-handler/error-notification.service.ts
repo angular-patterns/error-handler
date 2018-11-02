@@ -23,6 +23,11 @@ export class ErrorNotificationService {
     return this.lastError;
   }
 
+  clearLastError() {
+    this.lastError = null;
+    this._error.next(null);
+  }
+
   next(error: any) { 
     try {
       this.lastError = error;

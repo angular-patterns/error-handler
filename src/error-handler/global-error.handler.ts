@@ -15,7 +15,8 @@ export class GlobalErrorHandler implements ErrorHandler {
         // }
 
         const notificationService = this.injector.get(ErrorNotificationService);
-        notificationService.next(error);
+        notificationService.next(error);        
+        
         // this.injector.get(NgZone).run(t=> {
         //     setTimeout(t=> {
         //         router.navigate(['./error']);
