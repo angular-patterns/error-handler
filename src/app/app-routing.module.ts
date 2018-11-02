@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageComponent } from '../error-handler/page/page.component';
 
 const routes: Routes = [
-  { path: 'error', component: PageComponent}
+  { path: 'error', component: PageComponent }
 ];
 
 @NgModule({

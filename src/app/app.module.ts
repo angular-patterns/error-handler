@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorHandlerModule } from 'src/error-handler/error-handler.module';
 import { GlobalErrorHandler } from 'src/error-handler/global-error.handler';
-import { HttpErrorResolver } from '../error-handler/resolvers/http-error.resolver';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +19,6 @@ import { HttpErrorResolver } from '../error-handler/resolvers/http-error.resolve
     ErrorHandlerModule.forRoot([]),
   ],
   providers: [
-    HttpErrorResolver,
     { provide: ErrorHandler, useClass: GlobalErrorHandler}
   ],
   bootstrap: [

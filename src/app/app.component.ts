@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'app7';
-  constructor(private http: HttpClient){
+  someVar: any;
+  constructor(private http: HttpClient, private router: Router){
 
   }
   throwError() {
@@ -17,5 +18,11 @@ export class AppComponent {
   }
   httpError() {
     this.http.get('blahblah').subscribe();
+  }
+  nullError() {
+    this.someVar.doSomething();
+  }
+  routingError() {
+    this.router.navigate(['./some-path']);
   }
 }
