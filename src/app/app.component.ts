@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app7';
+  throwError() {
+    throw new Error("Something went wrong");
+  }
 }
