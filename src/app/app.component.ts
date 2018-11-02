@@ -13,9 +13,7 @@ export class AppComponent {
   someVar: any;
   constructor(private http: HttpClient, private router: Router, private ngZone: NgZone, private errorNotificationService: ErrorNotificationService){
     this.errorNotificationService.error$.subscribe(t=> {
-      if (router.url !== './error') {
-        this.errorNotificationService.navigate('./error');
-      }
+      this.errorNotificationService.safeNavigate('./error');
     });
 
   }
