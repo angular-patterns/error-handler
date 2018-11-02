@@ -1,4 +1,4 @@
-import { Component, NgZone } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ErrorNotificationService } from 'src/error-handler/error-notification.service';
@@ -11,7 +11,7 @@ import { ErrorNotificationService } from 'src/error-handler/error-notification.s
 export class AppComponent {
   title = 'app7';
   someVar: any;
-  constructor(private http: HttpClient, private router: Router, private ngZone: NgZone, private errorNotificationService: ErrorNotificationService){
+  constructor(private http: HttpClient, private router: Router, private errorNotificationService: ErrorNotificationService){
     this.errorNotificationService.error$.subscribe(t=> {
       this.errorNotificationService.safeNavigate('./error');
     });
