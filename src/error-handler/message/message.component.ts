@@ -2,6 +2,7 @@ import { Component, OnInit, Injector, NgZone } from '@angular/core';
 import { ErrorNotificationService } from '../error-notification.service';
 import { environment } from '../../environments/environment';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ErrorGroup } from '../models/error.model';
 
 @Component({
   selector: '.message',
@@ -12,6 +13,7 @@ export class MessageComponent implements OnInit {
   message: string;
   stack: string;
   html: SafeHtml;
+  groups: ErrorGroup[];
 
   customErrors: boolean = environment.customErrors;
 
@@ -27,6 +29,7 @@ export class MessageComponent implements OnInit {
           if (x.html) {
             this.html = sanitizer.bypassSecurityTrustHtml(x.html);
           }
+          this.groups = x.groups;
         });
       });
     }); 

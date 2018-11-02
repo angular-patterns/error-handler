@@ -3,11 +3,18 @@
 
 <ng-template #detailedMessages>
   <h2>{{ message }}</h2>
-  <div>
-      {{ stack }}
+  <div>{{ stack }}
   </div>
-  <div [innerHTML]="html">
-
+  <div *ngIf="html" [innerHTML]="html">
+  </div>
+  <div *ngFor="let group of groups">
+      <h2>{{ group.category }}</h2>
+      <table>
+        <tr *ngFor="let prop of group.properties">
+            <td>{{ prop.key }}</td>
+            <td>{{ prop.value }}</td>
+        </tr>
+      </table>    
   </div>
 </ng-template>
 <ng-template #friendlyMessages><ng-content></ng-content></ng-template>

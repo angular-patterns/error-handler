@@ -2,23 +2,31 @@ import { Injectable, Injector, Inject } from "@angular/core";
 import { ErrorModel } from "../models/error.model";
 import { ErrorResolver, Resolver, ErrorResolvers } from "../models/error-config.model";
 import { GeneralErrorResolver } from "./general-error.resolver";
+import { HttpErrorResolver } from "./http-error.resolver";
 
 @Injectable({ providedIn: "root"})
 export class ErrorResolverService {
+    errorResolvers: ErrorResolver[];
+
     constructor(@Inject(ErrorResolvers) private resolvers: ErrorResolver[], 
-        private generalResolver: GeneralErrorResolver, private injector: Injector) {
+        private httpErrorResolver: HttpErrorResolver,
+        private generalResolver: GeneralErrorResolver, 
+        private injector: Injector) {
+
+            this.errorResolvers = [
+                ...resolvers,
+                { name: 'HttpErrorResolver', resolver: HttpErrorResolver },
+                { name: 'GeneralErrorResolver', resolver: GeneralErrorResolver },
+            ]
 
     }
     public resolveError(error: any): ErrorModel {
         let errorModel: ErrorModel;
-        this.resolvers.forEach(t=> {
+        this.errorResolvers.forEach(t=> {
             if (errorModel == null) {
                 errorModel = this.resolve(t, error);
             }
         });
-        if (errorModel == null) {
-           errorModel = this.generalResolver.resolveError(error);
-        }
         return errorModel;
     }
 

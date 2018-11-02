@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Resolver } from "src/error-handler/models/error-config.model";
-import { ErrorModel, ErrorGroup } from "src/error-handler/models/error.model";
 import { HttpErrorResponse } from "@angular/common/http";
+import { ErrorModel } from "../models/error.model";
+import { Resolver } from "../models/error-config.model";
 
 @Injectable({ providedIn: "root"})
 export class HttpErrorResolver implements Resolver {
@@ -15,7 +15,7 @@ export class HttpErrorResolver implements Resolver {
             stack: '',
             html: error.error,
             groups: [{ 
-                category: 'HTTP properties',
+                category: 'Http Properties',
                 properties: [
                     { key: 'Name', value: error.name },
                     { key: 'Ok', value: error.ok },

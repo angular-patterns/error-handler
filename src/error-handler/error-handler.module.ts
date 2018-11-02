@@ -6,6 +6,7 @@ import { MessageComponent } from './message/message.component';
 import { ErrorResolver, ErrorResolvers } from './models/error-config.model';
 import { GeneralErrorResolver } from './resolvers/general-error.resolver';
 import { ErrorResolverService } from './resolvers/error-resolver.service';
+import { HttpErrorResolver } from './resolvers/http-error.resolver';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ export class ErrorHandlerModule {
       providers: [
         ErrorNotificationService,
         ErrorResolverService,
+        HttpErrorResolver,
         GeneralErrorResolver,
         { provide: ErrorResolvers, useValue: resolvers }
       ]
