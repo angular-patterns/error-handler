@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app7';
+  constructor(private http: HttpClient){
+
+  }
   throwError() {
     throw new Error("Something went wrong");
+  }
+  httpError() {
+    this.http.get('blahblah').subscribe();
   }
 }
