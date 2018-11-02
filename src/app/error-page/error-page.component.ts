@@ -3,11 +3,11 @@ import { ErrorNotificationService } from 'src/error-handler/error-notification.s
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'page',
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.component.scss']
+  selector: 'error-page',
+  templateUrl: './error-page.component.html',
+  styleUrls: ['./error-page.component.scss']
 })
-export class PageComponent implements OnInit {
+export class ErrorPageComponent implements OnInit {
 
   ngOnInit() {
 

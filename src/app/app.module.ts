@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorHandlerModule } from 'src/error-handler/error-handler.module';
 import { GlobalErrorHandler } from 'src/error-handler/global-error.handler';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

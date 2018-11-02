@@ -5,7 +5,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ErrorGroup } from '../models/error.model';
 
 @Component({
-  selector: '.message',
+  selector: 'error-message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss']
 })
