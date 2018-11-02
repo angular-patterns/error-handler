@@ -17,7 +17,7 @@ import { HttpErrorResolver } from './error-resolvers/http-error.resolver';
     AppRoutingModule,
     HttpClientModule,
     ErrorHandlerModule.forRoot([
-      { name: 'http', resolver: HttpErrorResolver }
+      { name: 'HttpErrorResolver', resolver: HttpErrorResolver }
     ]),
   ],
   providers: [

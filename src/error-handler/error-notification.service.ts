@@ -21,7 +21,7 @@ export class ErrorNotificationService {
       this._error.next(err);
     }
     catch(e) {
-      console.error(`ErrorResolverService.resolveError failed!`);
+      console.error(`ErrorResolverService.resolveError failed! ${e.message}`);
       this._error.next({
         message: error.message,
         stack: error.stack,

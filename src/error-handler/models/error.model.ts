@@ -1,6 +1,7 @@
 export class ErrorModel {
     message: string;
     stack: string;
+    html?: string;
     groups: ErrorGroup[];
 }
 

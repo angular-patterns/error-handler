@@ -22,8 +22,8 @@ export class ErrorResolverService {
         return errorModel;
     }
 
-    private resolve(errorResolver: any, error: any) {
-        let resolver: Resolver = this.injector.get(errorResolver);
+    private resolve(errorResolver: ErrorResolver, error: any) {
+        let resolver: Resolver = this.injector.get(errorResolver.resolver);
         if (resolver.canResolve(error)) {
             return resolver.resolveError(error);
         }
