@@ -8,6 +8,6 @@ export class ErrorNotificationService {
   constructor() { }
 
   next(error: any) {
-    alert(error);
+    alert(error.message);
   }
 }
