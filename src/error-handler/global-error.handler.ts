@@ -9,18 +9,18 @@ export class GlobalErrorHandler implements ErrorHandler {
     }
     handleError(error) {
         console.error(error);
-        const router = this.injector.get(Router);
-        if (router.url === '/error') {
-            return;
-        }
+        // const router = this.injector.get(Router);
+        // if (router.url === '/error') {
+        //     return;
+        // }
 
         const notificationService = this.injector.get(ErrorNotificationService);
         notificationService.next(error);
-        this.injector.get(NgZone).run(t=> {
-            setTimeout(t=> {
-                router.navigate(['./error']);
-            });
-          }); 
+        // this.injector.get(NgZone).run(t=> {
+        //     setTimeout(t=> {
+        //         router.navigate(['./error']);
+        //     });
+        //   }); 
         
     }
 }

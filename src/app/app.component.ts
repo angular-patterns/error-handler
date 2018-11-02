@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ErrorNotificationService } from 'src/error-handler/error-notification.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,12 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'app7';
   someVar: any;
-  constructor(private http: HttpClient, private router: Router){
+  constructor(private http: HttpClient, private router: Router, private ngZone: NgZone, private errorNotificationService: ErrorNotificationService){
+    this.errorNotificationService.error$.subscribe(t=> {
+      if (router.url !== './error') {
+        this.errorNotificationService.navigate('./error');
+      }
+    });
 
   }
   throwError() {
