@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, throttleTime } from 'rxjs/operators';
 import { ErrorModel } from './models/error.model';
 import { ErrorResolverService } from './resolvers/error-resolver.service';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ export class ErrorNotificationService {
 
   constructor(private errorResolverService: ErrorResolverService, private ngZone: NgZone, private router: Router) { 
     this._error = new BehaviorSubject<ErrorModel>(null);
-    this.error$ = this._error.asObservable().pipe(filter(t=>t != null));
+    this.error$ = this._error.asObservable().pipe(filter(t=>t != null), throttleTime(500));
     this.lastError = null;
   }
 
